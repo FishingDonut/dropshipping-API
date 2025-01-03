@@ -21,8 +21,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
-    }
+        try {
+            return $this->service->getAll();
+        } catch (Exception $th) {
+            return response()->json($th->getMessage());
+        }    }
 
     /**
      * Show the form for creating a new resource.

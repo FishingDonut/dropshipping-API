@@ -14,6 +14,15 @@ class UserService
         $this->model = $model;
     }
 
+    function getAll()
+    {
+        try {
+            return $this->model->all();
+        } catch (Exception $th) {
+            return $th->getMessage();
+        }
+    }
+
     function store($request)
     {
         try {
