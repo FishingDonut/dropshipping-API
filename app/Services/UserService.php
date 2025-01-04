@@ -31,6 +31,21 @@ class UserService
         }
     }
 
+    function update($request, $id)
+    {
+        try {
+            $response = $this->model->where('id', $id)->first();
+
+            if(!$response){
+                return null;
+            }
+
+            return $response->update($request);
+        } catch (Exception $th) {
+            return $th->getMessage();
+        }
+    }
+
     function store($request)
     {
         try {

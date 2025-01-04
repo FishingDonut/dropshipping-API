@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 
-class StoreUserRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,10 +27,10 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'fullName' => 'required|min:4',
-            'email' => 'required|unique:users',
-            'password' => 'required|min:8',
-            'phone' => 'required'
+            'fullName' => 'nullable|min:4',
+            'email' => 'nullable|unique:users',
+            'password' => 'nullable|min:8',
+            'phone' => 'nullable'
         ];
     }
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
-// use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Services\UserService as Service;
 use Exception;
 
@@ -71,10 +71,15 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    // public function update(UpdateUserRequest $request, User $user)
-    // {
-    //     //
-    // }
+
+    public function update(UpdateUserRequest $request, $id)
+    {
+        try {
+            return $this->service->update($request->all(), $id);
+        } catch (Exception $th) {
+            return response()->json($th->getMessage());
+        }
+    }
 
     /**
      * Remove the specified resource from storage.
