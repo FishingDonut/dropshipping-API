@@ -51,9 +51,13 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(User $user)
+    public function show($id)
     {
-        //
+        try {
+            return $this->service->findOne($id);
+        } catch (Exception $th) {
+            return response()->json($th->getMessage());
+        }
     }
 
     /**

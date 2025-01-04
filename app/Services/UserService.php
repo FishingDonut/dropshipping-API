@@ -22,6 +22,14 @@ class UserService
             return $th->getMessage();
         }
     }
+    function findOne($id)
+    {
+        try {
+            return $this->model->where('id', $id)->first();
+        } catch (Exception $th) {
+            return $th->getMessage();
+        }
+    }
 
     function store($request)
     {
