@@ -7,6 +7,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Services\UserService as Service;
 use Exception;
+use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -23,7 +24,9 @@ class UserController extends Controller
     public function index()
     {
         try {
-            return $this->service->getAll();
+            $response = $this->service->getAll();
+
+            return response()->json($response, Response::HTTP_OK);
         } catch (Exception $th) {
             return response()->json($th->getMessage());
         }
@@ -35,7 +38,9 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         try {
-            return $this->service->store($request);
+            $response = $this->service->store($request);
+
+            return response()->json($response, Response::HTTP_CREATED);
         } catch (Exception $th) {
             return response()->json($th->getMessage());
         }
@@ -47,7 +52,9 @@ class UserController extends Controller
     public function show($id)
     {
         try {
-            return $this->service->findOne($id);
+            $response = $this->service->findOne($id);
+
+            return response()->json($response, Response::HTTP_OK);
         } catch (Exception $th) {
             return response()->json($th->getMessage());
         }
@@ -60,7 +67,9 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, $id)
     {
         try {
-            return $this->service->update($request->all(), $id);
+            $response = $this->service->update($request->all(), $id);
+
+            return response()->json($response, Response::HTTP_OK);
         } catch (Exception $th) {
             return response()->json($th->getMessage());
         }
@@ -72,7 +81,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         try {
-            return $this->service->delete($id);
+            $response = $this->service->delete($id);
+
+            return response()->json($response, Response::HTTP_NO_CONTENT);
         } catch (Exception $th) {
             return response()->json($th->getMessage());
         }    }
