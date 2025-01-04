@@ -14,10 +14,11 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id()->unique();
             $table->string('name')->unique();
-            $table->float('price', 2);
-            $table->float('price_multiplier', 2);
+            $table->float('price', 10, 2);
+            $table->float('price_multiplier', 3, 2);
             $table->string('description')->nullable();
             $table->softDeletesDatetime();
+            $table->timestamps();
         });
     }
 
