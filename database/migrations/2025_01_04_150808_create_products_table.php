@@ -18,7 +18,6 @@ return new class extends Migration
             $table->float('price_multiplier', 2);
             $table->string('description')->nullable();
             $table->softDeletesDatetime();
-            $table->string('name');
         });
     }
 
