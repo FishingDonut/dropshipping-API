@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
+use App\Http\Requests\StoreUserRequest;
 use App\Models\User as Model;
 use Exception;
+use Ramsey\Uuid\Type\Integer;
 
 class UserService
 {
@@ -22,7 +24,7 @@ class UserService
             return $th->getMessage();
         }
     }
-    function findOne($id)
+    function findOne(Integer $id)
     {
         try {
             return $this->model->where('id', $id)->first();
@@ -31,7 +33,7 @@ class UserService
         }
     }
 
-    function update($request, $id)
+    function update($request,Integer $id)
     {
         try {
             $response = $this->model->where('id', $id)->first();
@@ -46,7 +48,7 @@ class UserService
         }
     }
 
-    function store($request)
+    function store(StoreUserRequest $request)
     {
         try {
             return $this->model->create($request->all());
