@@ -33,12 +33,12 @@ class UserService
         }
     }
 
-    function update($request,$id)
+    function update($request, $id)
     {
         try {
             $response = $this->model->where('id', $id)->first();
 
-            if(!$response){
+            if (!$response) {
                 return null;
             }
 
@@ -60,7 +60,7 @@ class UserService
     {
         try {
             $response = $this->model->where('id', $id)->first();
-            if(!$response){
+            if (!$response) {
                 return null;
             }
             return $response;
