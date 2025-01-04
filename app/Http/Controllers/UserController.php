@@ -54,6 +54,10 @@ class UserController extends Controller
         try {
             $response = $this->service->findOne($id);
 
+            if (!$response) {
+                return response()->json($response, Response::HTTP_NOT_FOUND);
+            }
+
             return response()->json($response, Response::HTTP_OK);
         } catch (Exception $th) {
             return response()->json($th->getMessage());
@@ -69,6 +73,10 @@ class UserController extends Controller
         try {
             $response = $this->service->update($request->all(), $id);
 
+            if (!$response) {
+                return response()->json($response, Response::HTTP_NOT_FOUND);
+            }
+
             return response()->json($response, Response::HTTP_OK);
         } catch (Exception $th) {
             return response()->json($th->getMessage());
@@ -83,8 +91,13 @@ class UserController extends Controller
         try {
             $response = $this->service->delete($id);
 
+            if (!$response) {
+                return response()->json($response, Response::HTTP_NOT_FOUND);
+            }
+
             return response()->json($response, Response::HTTP_NO_CONTENT);
         } catch (Exception $th) {
             return response()->json($th->getMessage());
-        }    }
+        }
+    }
 }
