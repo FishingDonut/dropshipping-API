@@ -25,7 +25,8 @@ class UserController extends Controller
             return $this->service->getAll();
         } catch (Exception $th) {
             return response()->json($th->getMessage());
-        }    }
+        }
+    }
 
     /**
      * Show the form for creating a new resource.
