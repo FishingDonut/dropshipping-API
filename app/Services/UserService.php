@@ -63,7 +63,7 @@ class UserService
             if(!$response){
                 return null;
             }
-            return $response->();
+            return $response;
         } catch (Exception $th) {
             return $th->getMessage();
         }
