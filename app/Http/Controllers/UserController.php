@@ -16,6 +16,7 @@ class UserController extends Controller
     {
         $this->service = $service;
     }
+
     /**
      * Display a listing of the resource.
      */
@@ -26,14 +27,6 @@ class UserController extends Controller
         } catch (Exception $th) {
             return response()->json($th->getMessage());
         }
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -61,14 +54,6 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(User $user)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
 
@@ -84,8 +69,11 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
-    }
+        try {
+            return $this->service->delete($id);
+        } catch (Exception $th) {
+            return response()->json($th->getMessage());
+        }    }
 }

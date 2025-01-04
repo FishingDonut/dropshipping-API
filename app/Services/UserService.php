@@ -56,4 +56,16 @@ class UserService
             return $th->getMessage();
         }
     }
+    function delete($id)
+    {
+        try {
+            $response = $this->model->where('id', $id)->first();
+            if(!$response){
+                return null;
+            }
+            return $response->delete();
+        } catch (Exception $th) {
+            return $th->getMessage();
+        }
+    }
 }
