@@ -24,7 +24,7 @@ class UserService
             return $th->getMessage();
         }
     }
-    function findOne(Integer $id)
+    function findOne($id)
     {
         try {
             return $this->model->where('id', $id)->first();
@@ -33,7 +33,7 @@ class UserService
         }
     }
 
-    function update($request,Integer $id)
+    function update($request,$id)
     {
         try {
             $response = $this->model->where('id', $id)->first();
