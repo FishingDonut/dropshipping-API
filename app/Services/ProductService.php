@@ -62,7 +62,7 @@ class ProductService
             if (!$response) {
                 return null;
             }
-            return $response;
+            return $response->delete();
         } catch (Exception $th) {
             return $th->getMessage();
         }
