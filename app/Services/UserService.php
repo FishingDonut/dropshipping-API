@@ -24,10 +24,10 @@ class UserService
             return $th->getMessage();
         }
     }
-    function findOne($id)
+    function findOne($email)
     {
         try {
-            return $this->model->where('id', $id)->first();
+            return $this->model->where('email', $email)->first();
         } catch (Exception $th) {
             return $th->getMessage();
         }
