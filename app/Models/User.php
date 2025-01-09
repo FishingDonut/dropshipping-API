@@ -20,4 +20,8 @@ class User extends Model
         'password',
         'phone',
     ];
+
+    public function Adress(){
+        return $this->hasOne(Adress::class);
+    }
 }
