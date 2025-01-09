@@ -20,7 +20,7 @@ class UserFactory extends Factory
             'fullName' => fake()->name(),
             'email' => fake()->email(),
             'password' => fake()->password(),
-            'phone' => fake()->numberBetween(8, 15),
+            'phone' => fake()->numberBetween(1000000, 100000000),
         ];
     }
 }
