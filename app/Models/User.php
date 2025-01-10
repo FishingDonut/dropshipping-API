@@ -24,8 +24,4 @@ class User extends Model
         public function pokemons(){
             return $this->hasMany(Pokemon::class);
         }
-
-    public function adress(){
-        return $this->hasMany(Adress::class);
-    }
 }
