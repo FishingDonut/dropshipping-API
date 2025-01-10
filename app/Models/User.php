@@ -21,7 +21,12 @@ class User extends Model
         'phone',
     ];
 
-        public function pokemons(){
-            return $this->hasMany(Pokemon::class);
-        }
+    public function pokemons()
+    {
+        return $this->hasMany(Pokemon::class);
+    }
+
+    public function badges(){
+        return $this->belongsToMany(Badge::class);
+    }
 }

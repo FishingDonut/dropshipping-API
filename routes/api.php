@@ -2,7 +2,8 @@
 
 use App\Models\{
     User,
-    Pokemon
+    Pokemon,
+    Badge
 };
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,12 @@ Route::get('/pokemon/user/{id?}/{name?}', function($id=1, $name='pikachu'){
 
 Route::get('/pokemon/{id?}', function($id=1){
     return Pokemon::find($id)->user;
+});
+
+Route::get('/user/badges/{id?}', function($id=1){
+    return User::find($id)->badges;
+});
+
+Route::get('/badge/users/{id?}', function($id=1){
+    return Badge::find($id)->users;
 });
