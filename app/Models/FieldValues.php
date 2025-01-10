@@ -11,5 +11,11 @@ class FieldValues extends Model
 
     public function field()
     {
-        return $this->belongsTo(Field::class);  // Relaciona o valor ao campo específico
-    }}
+        return $this->belongsTo(Field::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
+}

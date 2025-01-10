@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->string('name');
             $table->enum('type', ['string', 'integer', 'select']);
-            $table->json('options');
+            $table->json('options')->nullable();
             $table->timestamps();
         });
     }
