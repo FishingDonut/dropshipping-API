@@ -21,7 +21,7 @@ class User extends Model
         'phone',
     ];
 
-    public function Adress(){
-        return $this->hasOne(Adress::class);
+    public function adress(){
+        return $this->hasMany(Adress::class);
     }
 }
