@@ -84,4 +84,5 @@ class FieldController extends Controller
         } catch (Exception $th) {
             return response()->json($th->getMessage());
         }
-    }}
+    }
+}
