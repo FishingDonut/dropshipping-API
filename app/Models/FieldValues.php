@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class FieldValues extends Model
 {
+    use HasFactory;
     protected $fillable = ['field_id', 'item_id', 'value'];
     protected $table = 'field_values';
 
