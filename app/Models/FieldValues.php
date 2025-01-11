@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FieldValues extends Model
 {
     use HasFactory;
-    protected $fillable = ['field_id', 'item_id', 'value'];
+    protected $fillable = ['field_id', 'product_id', 'value'];
     protected $table = 'field_values';
 
     public function field()
