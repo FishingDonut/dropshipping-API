@@ -11,7 +11,9 @@ class Field extends Model
     protected $table = "fields";
 
     protected $fillable = [
+        "id",
         "name",
+        "category_id",
         "type",
         "options"
     ];
