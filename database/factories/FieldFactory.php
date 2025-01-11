@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class FieldFactory extends Factory
     public function definition(): array
     {
         return [
-            "category_id" => $this->faker->numberBetween(1,0),
+            "category_id" => Category::query()->inRandomOrder("id")->first()->id,
             "name" => $this->faker->name,
             "type" => $this->faker->randomElement(["string", "integer"])
         ];
