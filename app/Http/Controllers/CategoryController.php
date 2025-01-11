@@ -58,7 +58,7 @@ class CategoryController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UpdateCategoryRequest $request, $id)
     {
         try {
             $response = $this->service->update($request->all(), $id);
