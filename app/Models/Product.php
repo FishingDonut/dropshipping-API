@@ -20,4 +20,9 @@ class Product extends Model
         'price_multiplier',
         'description'
     ];
+
+    public function field_values()
+    {
+        return $this->hasMany(FieldValues::class, 'product_id', 'id');
+    }
 }
