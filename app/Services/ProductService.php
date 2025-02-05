@@ -26,7 +26,7 @@ class ProductService
     function findOne($id)
     {
         try {
-            return $this->model->where('id', $id)->first();
+            return $this->model->where('id', $id)->with("field_values.field")->first();
         } catch (Exception $th) {
             return $th->getMessage();
         }
